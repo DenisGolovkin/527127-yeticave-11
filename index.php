@@ -1,7 +1,7 @@
 <?php
 $is_auth = rand(0, 1);
 
-$user_name = ''; // укажите здесь ваше имя
+$user_name = 'Головкин Денис'; // укажите здесь ваше имя
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -27,9 +27,25 @@ $user_name = ''; // укажите здесь ваше имя
         <a class="main-header__add-lot button" href="pages/add-lot.html">Добавить лот</a>
 
         <nav class="user-menu">
-
         <!-- здесь должен быть PHP код для показа меню и данных пользователя -->
-
+        <?php
+        if ($is_auth == 1) {
+          echo '<div class="user-menu__logged">';
+          echo "<p>".$user_name."</p>";
+          echo '<a class="user-menu__bets" href="pages/my-bets.html">Мои ставки</a>';
+          echo '<a class="user-menu__logout" href="#">Выход</a>';
+          echo "</div>";
+        }
+        else {
+            echo '<ul class="user-menu__list">';
+            echo '<li class="user-menu__item">';
+            echo '<a href="#">Регистрация</a></li>';
+            echo '<li class="user-menu__item">';
+            echo '<a href="#">Вход</a>';
+            echo "</li>";
+            echo "</ul>";
+          }
+        ?>
         </nav>
     </div>
 </header>
