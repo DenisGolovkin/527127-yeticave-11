@@ -3,6 +3,52 @@ $is_auth = rand(0, 1);
 
 $user_name = 'Головкин Денис'; // укажите здесь ваше имя
 ?>
+<?php
+  // Список категорий
+  $categories = ["Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Прочее"];
+  $catg_count = count($categories);
+  $catg_index = 0;
+  // Список элементов объявлний
+  $items = [
+    [
+        'name' => '2014 Rossignol District Snowboard',
+        'category' => 'Доски и лыжи',
+        'price' => '10999',
+        'img_url' => 'img/lot-1.jpg',
+    ],
+    [
+        'name' => 'DC Ply Mens 2016/2017 Snowboard',
+        'category' => 'Доски и лыжи',
+        'price' => '159999',
+        'img_url' => 'img/lot-2.jpg',
+    ],
+    [
+        'name' => 'Крепления Union Contact Pro 2015 года размер L/XL',
+        'category' => 'Крепления',
+        'price' => '8000',
+        'img_url' => 'img/lot-3.jpg',
+    ],
+    [
+        'name' => 'Ботинки для сноуборда DC Mutiny Charocal',
+        'category' => 'Ботинки',
+        'price' => '10999',
+        'img_url' => 'img/lot-4.jpg',
+    ],
+    [
+        'name' => 'Куртка для сноуборда DC Mutiny Charocal',
+        'category' => 'Одежда',
+        'price' => '7500',
+        'img_url' => 'img/lot-5.jpg',
+    ],
+    [
+        'name' => 'Маска Oakley Canopy',
+        'category' => 'Разное',
+        'price' => '5400',
+        'img_url' => 'img/lot-6.jpg',
+    ],
+  ];
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -92,8 +138,11 @@ $user_name = 'Головкин Денис'; // укажите здесь ваш�
     <nav class="nav">
         <ul class="nav__list container">
             <!--заполните этот список из массива категорий-->
+            <?php while ($catg_index < $catg_count): ?>
             <li class="nav__item">
-                <a href="pages/all-lots.html">Название категории</a>
+                <a href="pages/all-lots.html"><?=$categories[$catg_index];?></a>
+              <?php $catg_index++;?>
+            <?php endwhile;?>
             </li>
         </ul>
     </nav>
