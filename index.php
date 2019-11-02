@@ -100,8 +100,11 @@ $user_name = 'Головкин Денис'; // укажите здесь ваш�
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
             <!--заполните этот список из массива категорий-->
-            <li class="promo__item promo__item--boards">
-                <a class="promo__link" href="pages/all-lots.html">Имя категории</a>
+            <?php while ($catg_index < $catg_count): ?>
+              <li class="promo__item promo__item--boards">
+                <a class="promo__link" href="pages/all-lots.html"><?=$categories[$catg_index];?></a>
+              <?php $catg_index++;?>
+            <?php endwhile;?>
             </li>
         </ul>
     </section>
