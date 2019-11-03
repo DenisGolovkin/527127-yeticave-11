@@ -6,8 +6,6 @@ $user_name = 'Головкин Денис'; // укажите здесь ваш�
 <?php
   // Список категорий
   $categories = ["Доски и лыжи", "Крепления", "Ботинки", "Одежда", "Инструменты", "Прочее"];
-  $catg_count = count($categories);
-  $catg_index = 0;
   // Список элементов объявлний
   $items = [
     [
@@ -100,11 +98,10 @@ $user_name = 'Головкин Денис'; // укажите здесь ваш�
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
             <!--заполните этот список из массива категорий-->
-            <?php while ($catg_index < $catg_count): ?>
+            <?php foreach ($categories as $value): ?>
               <li class="promo__item promo__item--boards">
-                <a class="promo__link" href="pages/all-lots.html"><?=$categories[$catg_index];?></a>
-              <?php $catg_index++;?>
-            <?php endwhile;?>
+                <a class="promo__link" href="pages/all-lots.html"><?=$value;?></a>
+            <?php endforeach;?>
             </li>
         </ul>
     </section>
@@ -143,11 +140,10 @@ $user_name = 'Головкин Денис'; // укажите здесь ваш�
     <nav class="nav">
         <ul class="nav__list container">
             <!--заполните этот список из массива категорий-->
-            <?php while ($catg_index < $catg_count): ?>
+            <?php foreach ($categories as $value): ?>
             <li class="nav__item">
-                <a href="pages/all-lots.html"><?=$categories[$catg_index];?></a>
-              <?php $catg_index++;?>
-            <?php endwhile;?>
+                <a href="pages/all-lots.html"><?=$value;?></a>
+            <?php endforeach;?>
             </li>
         </ul>
     </nav>
