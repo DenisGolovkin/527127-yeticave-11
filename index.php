@@ -48,6 +48,21 @@ $user_name = 'Головкин Денис'; // укажите здесь ваш�
     ],
   ];
 ?>
+<?php
+/*
+  ф-ция форматирования суммы в карточке товара
+*/
+$summ = $val;
+function summ_round($summ) {
+  $formated_summ = ceil($summ);
+  if ($formated_summ >= 1000) {
+      $formated_summ = number_format($formated_summ, 0, '.',' ');
+  }
+  return  $formated_summ . " ₽";
+}
+echo summ_round($summ);
+?>
+
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -125,7 +140,7 @@ $user_name = 'Головкин Денис'; // укажите здесь ваш�
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?=$val['price'];?><b class="rub">р</b></span>
+                            <span class="lot__cost"><?=summ_round($val['price']);?></span>
                         </div>
                         <div class="lot__timer timer">
                             12:23
