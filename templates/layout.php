@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title><?=$title;?></title>
+    <title><?=htmlspecialchars($title);?></title>
     <link href="css/normalize.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
@@ -25,7 +25,7 @@
         <!-- внёс исправления с учётом замечаний наставника -->
         <?php if ($is_auth === 1): ?>
           <div class="user-menu__logged">
-            <p><?=$user_name; ?></p>
+            <p><?=htmlspecialchars($user_name);?></p>
             <a class="user-menu__bets" href="pages/my-bets.html">Мои ставки</a>
             <a class="user-menu__logout" href="#">Выход</a>
           </div>
@@ -51,9 +51,9 @@
     <nav class="nav">
         <ul class="nav__list container">
             <!--заполните этот список из массива категорий-->
-            <?php foreach ($categories as $value): ?>
+              <?php foreach ($categories as $cat): ?>
             <li class="nav__item">
-                <a href="pages/all-lots.html"><?=$value;?></a>
+                <a href="pages/all-lots.html"><?=htmlspecialchars($cat);?></a>
             <?php endforeach;?>
             </li>
         </ul>
