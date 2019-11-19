@@ -29,9 +29,17 @@
                             <span class="lot__amount">Стартовая цена</span>
                             <span class="lot__cost"><?=summ_round(htmlspecialchars($item['price']));?></span>
                         </div>
-                        <div class="lot__timer timer">
-                            12:23
-                        </div>
+                        <!-- Ф-ция подсчёта времени до истечения лота -->
+                        <?php $rs = get_range_date($item['end_date']);?>
+                        <?php if($rs[0] < 1): ?>
+                          <div class="lot__timer timer timer--finishing">
+                            <?=htmlspecialchars($rs[0]).":".htmlspecialchars($rs[1]);?>
+                          </div>
+                        <?php else: ?>
+                          <div class="lot__timer timer">
+                            <?=htmlspecialchars($rs[0]).":".htmlspecialchars($rs[1]);?>
+                          </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </li>
