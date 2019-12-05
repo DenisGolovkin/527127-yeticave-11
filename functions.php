@@ -1,6 +1,6 @@
 <?php
 /**
-  ф-ция форматирования суммы в карточке товара
+*  ф-ция форматирования суммы в карточке товара
 */
 function summ_round($summ) {
   $formated_summ = ceil($summ);
@@ -11,7 +11,7 @@ function summ_round($summ) {
 }
 
 /**
-  ф-ция подсчёта времени до истечения лота
+*  ф-ция подсчёта времени до истечения лота
 */
 function get_range_date($end_date) {
   $cur_time = time(); // current timestamp
